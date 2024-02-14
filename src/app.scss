@@ -1,0 +1,449 @@
+@mixin flex($direction, $justify){
+  display: flex;
+  flex-flow: $direction;
+  align-items: center;
+  justify-content: $justify;
+}
+
+@mixin styleHeadings(){
+  position: absolute;
+  top: 0;
+  height: 45px;
+  background-color: #004748;
+  width: 115%;
+}
+
+@mixin headingShadow(){
+  content: "";
+        width: 8.6%;
+        height: 100%;
+        position: absolute;
+        right: 0.1%;
+        background-image: linear-gradient(-45deg, #fff 48%, #000 50%);
+        bottom: -88%;
+        z-index: -2;
+}
+
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header{
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #024940;
+}
+
+h1, h2{
+  color: white;
+  height: 100%;
+  width: 100%;
+  @include flex(row wrap, center)
+}
+
+h2{
+  margin-bottom: 10px;
+}
+#main{
+  background-color: #000;
+  width: 100%;
+  height: calc(100vh - 60px);
+  padding: 15px;
+  @include flex(row, space-between);
+  align-items: flex-start;
+  contain: content;
+}
+
+#form{
+  height: calc(100vh - 60px);
+  width: 35%;
+  padding: 5px;
+  background-color: #000;
+  overflow: scroll;
+  @include flex(row wrap, space-between);
+  div{
+    margin-bottom: 20px;
+  };
+}
+
+
+#form::-webkit-scrollbar {
+  height: 4px;
+  height: 15px;
+  padding-right: 10px;
+}
+
+#form::-webkit-scrollbar-track {
+  -webkit-box-shadow:none; 
+  border-radius: 2px;
+}
+
+#form::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: none; 
+  background-color: #d9d9d9;
+}
+
+
+
+ .contacts, .skills, .languages, .education, .Experiences, #about-me{
+  width: 100%;
+    label{
+      display: block;
+      margin-left: 2px;
+      margin-bottom: 4px;
+      width:100%;
+      color: rgb(255, 188, 87);
+    }
+    input, textarea{
+      width:100%;
+      height: 40px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      padding: 5px;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+    }
+
+    textarea{
+      height: 100px;
+      resize: none;
+    }
+  }
+
+  .skills, .languages{
+    position: relative;
+  }
+
+  #add-skill-btn, #add-languages-btn{
+    position: absolute;
+    right: 3px;
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: #ff9040;
+    color: #fff;
+    cursor: pointer;
+  }
+
+ 
+
+  #add-skill-btn:hover, #add-languages-btn:hover{
+    background-color: #fd7b1e;
+  }
+
+  
+
+
+  #drop-skills-list, #drop-languages-list, #add-work-btn, #add-edu-btn, #drop-work-list, #drop-edu-list{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: #FB8C00;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #drop-work-list, #drop-edu-list{
+    margin-top: 10px;
+  }
+
+  #skills-list, #languages-list, #work-list, #edu-list{
+    margin-top: -10px;
+    display: none;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 5px;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .list-item{
+    height: 40px;
+    border: 1px solid #000;
+    @include flex(row, 'space-between');
+    border-radius: 5px;
+    padding: 10px;
+    margin: 4px;
+
+    img{
+      width: 20px;
+    }
+  }
+
+  .photo-input{
+    position: relative;;
+  }
+
+  #imageInput {
+    display: none;
+  }
+  
+  .photo-input label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #ff9900;
+    color: #fff;
+    border: 1px solid #ff8000;
+    border-radius: 5px;
+  }
+  
+
+ 
+
+
+   
+  .cv-paper{
+    width: 55%;
+    height: calc(100vh - 60px);
+    background-color: #fff;
+    position: sticky;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+.cv-paper::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+  .left-section{
+    width: 350px;
+    min-height: 100%;
+    height: fit-content;
+    background-color: #002b2a;
+    margin: 34px 10px 0 25px;
+    // padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    @include flex(row wrap, center);
+
+
+    #cv-pic{
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    @include flex(row, center)
+    }
+
+    #cv-pic img{
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  
+
+    .languages-section{
+      width: 100%;
+      height: 240px;
+      position: relative;
+      @include flex(row wrap, center);
+      h2{
+        @include styleHeadings();
+      }
+
+      h2::after{
+        @include headingShadow()
+      }
+    }
+
+    .skills-section, .languages-section{
+      width: 100%;
+      min-height: fit-content;
+      @include flex(row wrap, center);
+      align-items: flex-start;
+      position: relative;
+
+      h2{
+        @include styleHeadings();
+      }
+
+      h2::after{
+        @include headingShadow()
+      }
+
+      p{
+        width: 100%;
+      }
+    }
+
+
+  .skills-list-section, .languages-list-section{
+    margin-top: 50px;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 10px;
+  }
+
+  li{
+    list-style-position: inside;
+  }
+
+
+
+    #contacts-section{
+      width: 100%;
+      min-height: 250px;
+      position: relative;
+      @include flex(row wrap, center);
+
+      #contacts-section-h2{
+          @include styleHeadings();
+      }
+
+      h2::after{
+        @include headingShadow()
+      }
+
+      .contacts-box{
+        width: 100%;
+        padding: 10px 15px;
+        height: calc(100% - 45px);
+        @include flex(column, 'space-between')
+      }
+
+      p{
+        @include flex(row, 'flex-start');
+        align-items: flex-start;
+        word-break: break-word;
+        padding: 10px 0;
+        img{
+          width: 25px;
+          margin-right: 10px;
+          margin-top: -4px;
+        };
+        width: 100%;
+        font-size: 1rem;
+        color: #fff;
+        text-align: center
+      };
+      p:nth-child(1){
+        margin-top: 40px;
+      }
+    }
+
+   
+  }
+
+  .right-section{
+    width: calc(100% - 350px);
+
+    h1, h2{
+      color: #000;
+    }
+
+    #name-job{
+      border-radius: 10px;
+      margin-top: 34px;
+      width: 97%;
+      min-height: 100px;
+      padding: 20px 10px;
+      background: #002b2a;
+      @include flex(column, center);
+      color: #fff;
+
+      #cv-paper-name{
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+
+      #cv-paper-job-title{
+        font-size: 1.5rem;
+        font-style: italic;
+        color: #ff9040;
+      }
+    }
+
+    #intro-section{
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      @include flex(column, center);
+
+      h2{
+        color:#000;
+      }
+
+      p{
+        padding: 0 20px 0 0;
+        margin-top: 10px;
+        font-size: 1.1rem;
+        text-align: justify;
+        word-break: break-word;
+      }
+    }
+
+
+
+   #education-section, #work-section{
+    margin-top: 30px;
+    @include flex(column, center);
+    h2{
+      background-color: #02493f41;
+      padding: 5px;
+      width: fit-content;
+      border-radius: 5px;
+    }
+   }
+    .education-box, .work-box{
+      width: 100%;
+      font-size: 1.1rem;
+      padding: 10px 25px 10px 30px;
+      @include flex(row, flex-start);
+      align-items: flex-start;
+      margin-bottom: 15px;
+
+      .left-edu-box, .left-work-box{
+        width: 100px;
+        word-break: break-word;
+        @include flex(column, flex-start);
+        align-items: flex-start;
+        margin-right: 30px;
+        .education-date, .work-date{
+          width: 100px;
+          @include flex(row, space-between)
+        }
+      }
+
+      .degree-uni, .right-work-box{
+        @include flex(column, flex-start);
+        align-items: flex-start;
+      }
+
+
+      .work-discription, .edu-discription{
+        text-align: justify;
+        word-break: break-word;
+      }
+    }
+  }
+
+
+  li::marker{
+        color: #fd7b1e;
+  }
